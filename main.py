@@ -123,7 +123,7 @@ def move_tiles(window, tiles, clock, direction):
         delta = (-MOVE_VEL, 0)
         #far left possible
         boundary_check = lambda tile: tile.col == 0
-        get_next_tile = lambda tile: tiles.get(f"{tile.row},{tile.col - 1}")
+        get_next_tile = lambda tile: tiles.get(f"{tile.row}{tile.col - 1}")
         merge_check = lambda tile, next_tile: tile.x > next_tile.x > next_tile.x + MOVE_VEL
         move_check = (
             lambda tile, next_tile: tile.x > next_tile.x > RECT_WIDTH + MOVE_VEL
@@ -137,7 +137,7 @@ def move_tiles(window, tiles, clock, direction):
         delta = ( MOVE_VEL, 0)
         #far left possible
         boundary_check = lambda tile: tile.col == COLS - 1
-        get_next_tile = lambda tile: tiles.get(f"{tile.row},{tile.col + 1}") 
+        get_next_tile = lambda tile: tiles.get(f"{tile.row}{tile.col + 1}") 
         merge_check = lambda tile, next_tile: tile.x <  next_tile.x > next_tile.x - MOVE_VEL
         move_check = (
             lambda tile, next_tile: tile.x + RECT_WIDTH + MOVE_VEL < next_tile.x > RECT_WIDTH + MOVE_VEL
@@ -150,7 +150,7 @@ def move_tiles(window, tiles, clock, direction):
         delta = (0,  -MOVE_VEL)
         #far left possible
         boundary_check = lambda tile: tile.row == 0
-        get_next_tile = lambda tile: tiles.get(f"{tile.row -1},{tile.col}") 
+        get_next_tile = lambda tile: tiles.get(f"{tile.row -1}{tile.col}") 
         merge_check = lambda tile, next_tile: tile.y >  next_tile.y + MOVE_VEL
         move_check = ( 
             lambda tile, next_tile: tile.y > next_tile.y + RECT_HEIGHT + MOVE_VEL
@@ -163,7 +163,7 @@ def move_tiles(window, tiles, clock, direction):
         delta = (0,  MOVE_VEL)
         #far left possible
         boundary_check = lambda tile: tile.row == ROWS - 1
-        get_next_tile = lambda tile: tiles.get(f"{tile.row + 1},{tile.col}") 
+        get_next_tile = lambda tile: tiles.get(f"{tile.row + 1}{tile.col}") 
         merge_check = lambda tile, next_tile: tile.y <  next_tile.y > next_tile.y - MOVE_VEL
         move_check = ( 
             lambda tile, next_tile: tile.y + RECT_HEIGHT + MOVE_VEL  < next_tile.y 
