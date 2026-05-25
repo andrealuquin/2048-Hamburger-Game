@@ -139,10 +139,21 @@ def move_tiles(window, tiles, clock, direction):
         ceil = True
 
     elif direction == "right":
-        pass 
+        #sort tiles by their column
+        sort_func  = lambda x: x.col
+        reverse = True
+        delta = ( MOVE_VEL, 0)
+        #far left possible
+        boundary_check = lambda tile: tile.col == COLS - 1
+        get_next_tile = lambda tile: tiles.get(f"{tile.row},{tile.col + 1}") 
+        merge_check = lambda tile, next_tile: tile.x <  next_tile.x > next_tile.x - MOVE_VEL
+        move_check = (
+            lambda tile, next_tile: tile.x + RECT_WIDTH + MOVE_VEL < next_tile.x > RECT_WIDTH + MOVE_VEL
+        )
+        ceil = False
     elif direction == "up":
         pass
-    elif direction == "down":
+    elif direction == "down": 
         pass
 
     while updated:
