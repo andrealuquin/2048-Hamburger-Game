@@ -24,3 +24,11 @@ FONT_COLOR = (119, 110, 101)
 FONT = pygame.font.SysFont("comicsans", 60, bold=True)
 #speed of tiles
 MOVE_VEL = 20
+
+#for menu
+MENU_TITLE_COLOR = (92, 20, 14)
+MENU_TEXT_COLOR = (119, 110, 101)
+
+TITLE_FONT_SIZE = 80
+MENU_FONT_SIZE = 40
+

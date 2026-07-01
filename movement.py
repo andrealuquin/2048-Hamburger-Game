@@ -9,7 +9,7 @@ from drawing import draw
 def get_tile_key(row, col):
     return f"{row}{col}"
 
-
+# find random empty position on board
 def get_random_pos(tiles):
     while True:
         row = random.randrange(0, ROWS)

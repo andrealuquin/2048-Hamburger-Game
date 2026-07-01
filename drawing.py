@@ -22,6 +22,7 @@ def draw_grid(window):
 
     pygame.draw.rect(window, OUTLINE_COLOR, (0, 0, WIDTH, HEIGHT), OUTLINE_THICKNESS)
 
+# draws updated grid display
 def draw (window, tiles):
     window.fill(BACKGROUND_COLOR)
 

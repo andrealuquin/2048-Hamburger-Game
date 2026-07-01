@@ -2,6 +2,8 @@ import pygame
 import random
 import math
 
+# for each tile: value, row and column position on board
+# and pixel position for dreawing 
 from settings import RECT_WIDTH, RECT_HEIGHT, FONT, FONT_COLOR
 class Tile:
     COLORS = [
@@ -23,6 +25,8 @@ class Tile:
         self.x = col * RECT_WIDTH
         self.y = row * RECT_HEIGHT
 
+
+    #title value decide which color to use
     def get_color(self):
         color_index = int(math.log2(self.value)) - 1
         color = self.COLORS[color_index]
@@ -33,6 +37,7 @@ class Tile:
         pygame.draw.rect(window,color, (self.x, self.y, RECT_WIDTH, RECT_HEIGHT))
 
         text = FONT.render(str(self.value), 1, FONT_COLOR)
+
         window.blit(
             text,
             (
