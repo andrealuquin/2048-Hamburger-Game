@@ -4,7 +4,8 @@ import os
 import math
 
 TILE_IMAGES = {
-    2: pygame.image.load("assets/images/Plate.png")
+    2: pygame.image.load("assets/images/plate.png"),
+    4: pygame.image.load("assets/images/bottom_bread.png")
 }
 # for each tile: value, row and column position on board
 # and pixel position for dreawing 
