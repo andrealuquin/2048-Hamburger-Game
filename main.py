@@ -13,8 +13,7 @@ def load_music():
     except pygame.error:
         print("Could not load music file.")
 
-#process: starts game, creates game window, loads music, controls main loop logic, 
-#switches between menu screen and gameplay screen
+
 def main():
     pygame.init()
     pygame.mixer.init()

@@ -5,7 +5,16 @@ import math
 
 TILE_IMAGES = {
     2: pygame.image.load("assets/images/plate.png"),
-    4: pygame.image.load("assets/images/bottom_bread.png")
+    4: pygame.image.load("assets/images/bottom_bun.png"),
+    8: pygame.image.load("assets/images/meat.png"),
+    16: pygame.image.load("assets/images/cheese.png"),
+    32: pygame.image.load("assets/images/lettuce.png"),
+    64: pygame.image.load("assets/images/tomatos.png"),
+    128: pygame.image.load("assets/images/onions.png"),
+    256: pygame.image.load("assets/images/ketchup.png"),
+    512: pygame.image.load("assets/images/mustard.png"),
+    1024: pygame.image.load("assets/images/meat2.png"),
+    2048: pygame.image.load("assets/images/top_bun.png"),
 }
 # for each tile: value, row and column position on board
 # and pixel position for dreawing 

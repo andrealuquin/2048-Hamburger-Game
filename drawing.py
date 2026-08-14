@@ -24,6 +24,9 @@ def draw_grid(window):
 
 # draws updated grid display
 def draw (window, tiles):
+    game_background = pygame.image.load("assets/images/game_background.png")
+    game_background = pygame.transform.scale(game_background, (WIDTH, HEIGHT))
+    window.blit(game_background, (0, 0))
     window.fill(BACKGROUND_COLOR)
 
     for tile in tiles.values():
