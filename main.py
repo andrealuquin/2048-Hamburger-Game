@@ -40,7 +40,7 @@ def main():
 
         # Drawing section
         if game_state == "menu":
-            draw_menu(window, music_on)
+            draw_menu(window)
         elif game_state == "playing":
             draw(window, tiles)
 
