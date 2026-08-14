@@ -1,6 +1,6 @@
 import pygame
 from settings import WIDTH, HEIGHT, FPS
-from drawing import draw
+from drawing import draw, load_drawing_assets
 from movement import generate_tiles, move_tiles
 from menu import draw_menu
 
@@ -10,6 +10,8 @@ def main():
 
     window = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("2048 Hamburger Game")
+
+    load_drawing_assets()
 
     clock = pygame.time.Clock()
     run = True

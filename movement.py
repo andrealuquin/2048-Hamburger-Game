@@ -2,7 +2,6 @@
 
 import random
 from settings import ROWS, COLS, RECT_WIDTH, RECT_HEIGHT, MOVE_VEL, FPS
-from tile import Tile
 from drawing import draw
 
 

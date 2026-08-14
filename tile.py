@@ -4,30 +4,76 @@ import math
 from settings import RECT_WIDTH, RECT_HEIGHT, FONT, FONT_COLOR
 
 
-def load_tile_images():
-
-    image_paths = {
-        2: "assets/images/plate.png",
-        4: "assets/images/bottom_bun.png",
-        8: "assets/images/meat.png",
-        16: "assets/images/cheese.png",
-        32: "assets/images/lettuce.png",
-        64: "assets/images/tomatos.png",
-        128: "assets/images/onions.png",
-        256: "assets/images/ketchup.png",
-        512: "assets/images/mustard.png",
-        1024: "assets/images/meat2.png",
-        2048: "assets/images/top_bun.png",
-    }
-
-    tile_images = {}
-
-    for value, path in image_paths.items():
-        image = pygame.image.load(path).convert_alpha()
-        image = pygame.transform.scale(image, (RECT_WIDTH, RECT_HEIGHT))
-        tile_images[value] = image
-
-    return tile_images
+TILE_IMAGES = {
+    2: pygame.image.load("assets/images/plate.png"),
+    4: pygame.image.load("assets/images/bottom_bun.png"),
+    8: pygame.image.load("assets/images/meat.png"),
+    16: pygame.image.load("assets/images/cheese.png"),
+    32: pygame.image.load("assets/images/lettuce.png"),
+    64: pygame.image.load("assets/images/tomatos.png"),
+    128: pygame.image.load("assets/images/onions.png"),
+    256: pygame.image.load("assets/images/ketchup.png"),
+    512: pygame.image.load("assets/images/mustard.png"),
+    1024: pygame.image.load("assets/images/meat2.png"),
+    2048: pygame.image.load("assets/images/top_bun.png"),
+}
 
 
-TILE_IMAGES = {}
+class Tile:
+    COLORS = [
+        (242, 175, 170),
+        (242, 139, 131),
+        (237, 92, 81),
+        (237, 54, 40),
+        (235, 36, 21),
+        (143, 14, 4),
+        (107, 10, 2),
+        (92, 20, 14),
+        (94, 32, 26),
+    ]
+
+    def __init__(self, value, row, col):
+        self.value = value
+        self.row = row
+        self.col = col
+        self.x = col * RECT_WIDTH
+        self.y = row * RECT_HEIGHT
+
+    def get_color(self):
+        color_index = int(math.log2(self.value)) - 1
+
+        if color_index >= len(self.COLORS):
+            color_index = len(self.COLORS) - 1
+
+        return self.COLORS[color_index]
+
+    def draw(self, window):
+        color = self.get_color()
+        pygame.draw.rect(window, color, (self.x, self.y, RECT_WIDTH, RECT_HEIGHT))
+
+        if self.value in TILE_IMAGES:
+            image = TILE_IMAGES[self.value]
+            image = pygame.transform.scale(image, (RECT_WIDTH, RECT_HEIGHT))
+            window.blit(image, (self.x, self.y))
+
+        else:
+            text = FONT.render(str(self.value), True, FONT_COLOR)
+            window.blit(
+                text,
+                (
+                    self.x + (RECT_WIDTH / 2 - text.get_width() / 2),
+                    self.y + (RECT_HEIGHT / 2 - text.get_height() / 2),
+                ),
+            )
+
+    def set_pos(self, ceil=False):
+        if ceil:
+            self.row = math.ceil(self.y / RECT_HEIGHT)
+            self.col = math.ceil(self.x / RECT_WIDTH)
+        else:
+            self.row = math.floor(self.y / RECT_HEIGHT)
+            self.col = math.floor(self.x / RECT_WIDTH)
+
+    def move(self, delta):
+        self.x += delta[0]
+        self.y += delta[1]

@@ -1,27 +1,22 @@
-# menu.py
 import pygame
 from settings import (
     WIDTH,
-    HEIGHT,
     BACKGROUND_COLOR,
     MENU_TITLE_COLOR,
-    MENU_TEXT_COLOR,
 )
 
 
 def draw_centered_text(window, text, font, color, y):
-
     rendered_text = font.render(text, True, color)
     x = WIDTH / 2 - rendered_text.get_width() / 2
     window.blit(rendered_text, (x, y))
 
 
 def draw_button(window, rect, text, font, mouse_pos):
- 
     if rect.collidepoint(mouse_pos):
-        button_color = (255, 220, 130)  
+        button_color = (255, 220, 130)
     else:
-        button_color = (242, 175, 90)   
+        button_color = (242, 175, 90)
 
     outline_color = (92, 20, 14)
     text_color = (92, 20, 14)
@@ -38,7 +33,6 @@ def draw_button(window, rect, text, font, mouse_pos):
 
 
 def draw_menu(window):
-   
     window.fill(BACKGROUND_COLOR)
 
     title_font = pygame.font.SysFont("comicsans", 80, bold=True)
