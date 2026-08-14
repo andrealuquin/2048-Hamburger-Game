@@ -39,9 +39,9 @@ The tile values are represented with hamburger-building images:
 ## How to run
 - This project uses:
     - Python 3
-    -Pygame
+    - Pygame
 - Install pygame with:
-    pip install pygame
+    - pip install pygame
 - Run with:
     -  python main.py
 
