@@ -5,78 +5,71 @@ from movement import generate_tiles, move_tiles
 from menu import draw_menu
 
 
-#For loading music 
-def load_music():
-    try:
-        pygame.mixer.music.load("assets/music/theme.mp3")
-        pygame.mixer.music.set_volume(0.4)
-    except pygame.error:
-        print("Could not load music file.")
-
-
 def main():
     pygame.init()
-    pygame.mixer.init()
-    
+
     window = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("2048 Hamburger Game")
-
-    load_music()
 
     clock = pygame.time.Clock()
     run = True
 
-    #game starts on menu screen
     game_state = "menu"
 
-    
-    music_on = False
-
-    #tiles are generated but board resets when player starts
+    # create the starting tiles.
+    # this will be reset again when the player clicks Play
     tiles = generate_tiles()
+
+    #this will store the clickable Play button rectangle
+    play_button = None
 
     while run:
         clock.tick(FPS)
 
-        # Drawing section
+        #draw the correct screen depending on the current game state
         if game_state == "menu":
-            draw_menu(window)
+            play_button = draw_menu(window)
+
         elif game_state == "playing":
             draw(window, tiles)
 
-        # Event handling section
         for event in pygame.event.get():
+
             if event.type == pygame.QUIT:
                 run = False
-                break
 
+            #check mouse clicks.
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:  # left click
+
+                    # if we are on the menu and the player clicks Play,
+                    # switch to the game screen.
+                    if game_state == "menu":
+                        if play_button and play_button.collidepoint(event.pos):
+                            game_state = "playing"
+                            tiles = generate_tiles()
+
+            #check keyboard input
             if event.type == pygame.KEYDOWN:
-                # Menu controls
-                if game_state == "menu":
 
-                    # enter starts a new game
-                    if event.key == pygame.K_RETURN:
-                        game_state = "playing"
-                        tiles = generate_tiles()
-                    # m turn the music on or off
-                    elif event.key == pygame.K_m:
-                        music_on = not music_on
-                        if music_on:
-                            pygame.mixer.music.play(-1)
-                        else:
-                            pygame.music.stop()
-                #game controls
-                if event.key == pygame.K_LEFT:
-                    move_tiles(window, tiles, clock, "left")
+                #arrow keys should only move tiles during gameplay
+                if game_state == "playing":
 
-                elif event.key == pygame.K_RIGHT:
-                    move_tiles(window, tiles, clock, "right")
+                    if event.key == pygame.K_LEFT:
+                        move_tiles(window, tiles, clock, "left")
 
-                elif event.key == pygame.K_UP:
-                    move_tiles(window, tiles, clock, "up")
+                    elif event.key == pygame.K_RIGHT:
+                        move_tiles(window, tiles, clock, "right")
 
-                elif event.key == pygame.K_DOWN:
-                    move_tiles(window, tiles, clock, "down")
+                    elif event.key == pygame.K_UP:
+                        move_tiles(window, tiles, clock, "up")
+
+                    elif event.key == pygame.K_DOWN:
+                        move_tiles(window, tiles, clock, "down")
+
+                    # ESC returns to the menu.
+                    elif event.key == pygame.K_ESCAPE:
+                        game_state = "menu"
 
     pygame.quit()
 
