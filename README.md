@@ -7,41 +7,43 @@ The player is then able to combine the tiles and build toward a final burger. Th
 includes a 4x4 2048-style board and a menu screen.
 
 ## How to play
-Run the game.
-Click the PLAY button on the menu screen.
-Use the arrow keys to move the tiles:
-Left Arrow
-Right Arrow
-Up Arrow
-Down Arrow
-Matching tiles combine into the next burger ingredient stage.
-Press ESC during gameplay to return to the menu.
+- Run the game.
+- Click the PLAY button on the menu screen.
+- Use the arrow keys to move the tiles:
+- Left Arrow
+- Right Arrow
+- Up Arrow
+- Down Arrow
+- Matching tiles combine into the next burger ingredient stage.
+- Press ESC during gameplay to return to the menu.
 
-## Tile theme
+## Tile Theme
 The tile values are represented with hamburger-building images:
 
-Tile Value	Burger Stage
-2	        Plate
-4	        Bottom Bun
-8	        Meat
-16	        Cheese
-32	        Lettuce
-64	        Tomatos
-128	        Onionn
-256 	    Ketchup
-512	        Mustard
-1024	    Second Meat
-2048	    Top Bun
+| Tile Value | Burger Stage |
+|---|---|
+| 2 | Plate |
+| 4 | Bottom Bun |
+| 8 | Meat |
+| 16 | Cheese |
+| 32 | Lettuce |
+| 64 | Tomatoes |
+| 128 | Onion |
+| 256 | Ketchup |
+| 512 | Mustard |
+| 1024 | Second Meat |
+| 2048 | Top Bun |
 
-## Requirements
-This project uses:
-    - Python 3
-    - Pygame
-Install pygame with:
-    pip install pygame
+
 
 ## How to run
-python main.py
+This project uses:
+    - Python 3
+    -Pygame
+Install pygame with:
+    pip install pygame
+Run with:
+    -  python main.py
 
 ## Future things I want to implent
     -  Adding a more complete game-over screen
