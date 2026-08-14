@@ -1,8 +1,9 @@
 import pygame
+import tile
 from settings import WIDTH, HEIGHT, FPS
-from drawing import draw, load_drawing_assets
+from drawing import draw
 from movement import generate_tiles, move_tiles
-from menu import draw_menu
+from menu import draw_menu, load_menu_assets
 
 
 def main():
@@ -11,14 +12,14 @@ def main():
     window = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("2048 Hamburger Game")
 
-    load_drawing_assets()
+    load_menu_assets()
 
     clock = pygame.time.Clock()
     run = True
 
     game_state = "menu"
 
-    # create the starting tiles.
+    # create the starting tiles
     # this will be reset again when the player clicks Play
     tiles = generate_tiles()
 
@@ -40,7 +41,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
 
-            #check mouse clicks.
+            #check mouse clicks
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:  # left click
 
@@ -74,7 +75,6 @@ def main():
                         game_state = "menu"
 
     pygame.quit()
-
 
 if __name__ == "__main__":
     main()

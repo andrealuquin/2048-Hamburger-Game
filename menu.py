@@ -1,10 +1,23 @@
 import pygame
+
 from settings import (
     WIDTH,
+    HEIGHT,
     BACKGROUND_COLOR,
     MENU_TITLE_COLOR,
 )
 
+menu_background = None
+
+def load_menu_assets():
+    global menu_background
+
+    try:
+        menu_background = pygame.image.load("assets/images/menu_background.png").convert()
+        menu_background = pygame.transform.scale(menu_background, (WIDTH, HEIGHT))
+    except pygame.error:
+        print("Could not load menu background.")
+        menu_background = None
 
 def draw_centered_text(window, text, font, color, y):
     rendered_text = font.render(text, True, color)
@@ -33,20 +46,23 @@ def draw_button(window, rect, text, font, mouse_pos):
 
 
 def draw_menu(window):
-    window.fill(BACKGROUND_COLOR)
+    if menu_background:
+        window.blit(menu_background, (0, 0))
+    else:
+        window.fill(BACKGROUND_COLOR)
 
-    title_font = pygame.font.SysFont("comicsans", 80, bold=True)
+    # title_font = pygame.font.SysFont("comicsans", 90, bold=True)
     button_font = pygame.font.SysFont("comicsans", 45, bold=True)
 
     mouse_pos = pygame.mouse.get_pos()
 
-    draw_centered_text(
-        window,
-        "2048 Burger",
-        title_font,
-        MENU_TITLE_COLOR,
-        180,
-    )
+    # draw_centered_text(
+    #     window,
+    #     "2048 Burger",
+    #     title_font,
+    #     MENU_TITLE_COLOR,
+    #     10,
+    # )
 
     play_button = pygame.Rect(250, 360, 300, 90)
 

@@ -12,21 +12,6 @@ from settings import (
     BACKGROUND_COLOR,
 )
 
-
-game_background = None
-
-
-def load_drawing_assets():
-    global game_background
-
-    try:
-        game_background = pygame.image.load("assets/images/game_background.png").convert()
-        game_background = pygame.transform.scale(game_background, (WIDTH, HEIGHT))
-    except pygame.error:
-        print("Could not load game background.")
-        game_background = None
-
-
 def draw_grid(window):
     for row in range(1, ROWS):
         y = row * RECT_HEIGHT
@@ -40,10 +25,7 @@ def draw_grid(window):
 
 
 def draw(window, tiles):
-    if game_background:
-        window.blit(game_background, (0, 0))
-    else:
-        window.fill(BACKGROUND_COLOR)
+    window.fill(BACKGROUND_COLOR)
 
     for tile in tiles.values():
         tile.draw(window)
