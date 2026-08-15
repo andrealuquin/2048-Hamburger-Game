@@ -50,7 +50,7 @@ The tile values are represented with hamburger-building images:
     -  Adding a restart option
     -  Adding score tracking
 
-
+https://github.com/user-attachments/assets/9aced4e6-c83c-4533-b027-9fe851ac79ca
 
 
 
