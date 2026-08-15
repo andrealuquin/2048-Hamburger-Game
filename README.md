@@ -6,7 +6,7 @@ Instead of numbers, the game uses burger ingredient to represent diffente tile v
 The player is then able to combine the tiles and build toward a final burger. The game
 includes a 4x4 2048-style board and a menu screen.
 
-## How to play
+## How To play
 - Run the game.
 - Click the PLAY button on the menu screen.
 - Use the arrow keys to move the tiles:
@@ -36,7 +36,7 @@ The tile values are represented with hamburger-building images:
 
 
 
-## How to run
+## How To Run
 - This project uses:
     - Python 3
     - Pygame
@@ -45,11 +45,10 @@ The tile values are represented with hamburger-building images:
 - Run with:
     -  python main.py
 
-## Future things I want to implent
+## Future Things I Want To Implent
     -  Adding a more complete game-over screen
     -  Adding a restart option
     -  Adding score tracking
-
 
 
 
