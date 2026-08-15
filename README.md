@@ -17,6 +17,8 @@ includes a 4x4 2048-style board and a menu screen.
 - Matching tiles combine into the next burger ingredient stage.
 - Press ESC during gameplay to return to the menu.
 
+https://github.com/user-attachments/assets/9aced4e6-c83c-4533-b027-9fe851ac79ca
+
 ## Tile Theme
 The tile values are represented with hamburger-building images:
 
@@ -50,7 +52,6 @@ The tile values are represented with hamburger-building images:
     -  Adding a restart option
     -  Adding score tracking
 
-https://github.com/user-attachments/assets/9aced4e6-c83c-4533-b027-9fe851ac79ca
 
 
 
