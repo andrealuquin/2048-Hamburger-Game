@@ -48,9 +48,9 @@ The tile values are represented with hamburger-building images:
     -  python main.py
 
 ## Future Things I Want To Implent
-    -  Adding a more complete game-over screen
-    -  Adding a restart option
-    -  Adding score tracking
+    -  Add a more complete game-over screen
+    -  Add a restart option
+    -  Add a score tracking
 
 
 
